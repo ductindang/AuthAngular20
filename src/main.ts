@@ -1,6 +1,14 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';
 import { App } from './app/app';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
-bootstrapApplication(App, appConfig)
+bootstrapApplication(App, {
+  // Phai them cai nay neu su dung standalone: true
+  ...appConfig,
+  providers: [
+    ...(appConfig.providers || []),
+    provideAnimations(),
+  ]
+})
   .catch((err) => console.error(err));

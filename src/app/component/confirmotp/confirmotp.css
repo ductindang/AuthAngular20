@@ -1,0 +1,26 @@
+/* Container bao bọc 6 ô input */
+.otp-container {
+    display: flex;
+    justify-content: space-between; /* Giãn cách đều giữa các ô */
+    max-width: 300px; /* Giới hạn độ rộng của container */
+    margin: 20px auto; /* Căn giữa container trong card */
+}
+
+/* Định dạng cho từng ô nhập liệu */
+.otp-input {
+    width: 40px; /* Độ rộng của ô */
+    height: 40px; /* Chiều cao của ô */
+    text-align: center; /* Căn giữa chữ số trong ô */
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+    /* Xóa style focus mặc định của trình duyệt */
+    outline: none; 
+}
+
+/* Hiệu ứng khi focus */
+.otp-input:focus {
+    border-color: #3f51b5; /* Màu Primary của Material */
+    box-shadow: 0 0 0 1px #3f51b5;
+}

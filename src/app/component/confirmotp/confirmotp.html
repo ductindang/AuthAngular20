@@ -1,0 +1,32 @@
+<mat-card>
+    <mat-card-header>
+        <h1>OTP Verification</h1>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div class="otp-container">
+            <!-- ngModel la lay du lieu tu file confirmootp.ts -->
+            <input id="otp-input-0" class="otp-input" type="text" maxlength="1"
+                [(ngModel)]="_otp[0]" (keyup)="onKeyUp($event, 0)"/>
+            <input id="otp-input-1" class="otp-input" type="text" maxlength="1"
+                    [(ngModel)]="_otp[1]" (keyup)="onKeyUp($event, 1)">
+            <input id="otp-input-2" class="otp-input" type="text" maxlength="1"
+                    [(ngModel)]="_otp[2]" (keyup)="onKeyUp($event, 2)">
+            <input id="otp-input-3" class="otp-input" type="text" maxlength="1"
+                    [(ngModel)]="_otp[3]" (keyup)="onKeyUp($event, 3)">
+            <input id="otp-input-4" class="otp-input" type="text" maxlength="1"
+                    [(ngModel)]="_otp[4]" (keyup)="onKeyUp($event, 4)">
+            <input id="otp-input-5" class="otp-input" type="text" maxlength="1"
+                    [(ngModel)]="_otp[5]" (keyup)="onKeyUp($event, 5)">
+        </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <div class="div-50">
+            <button mat-raised-button color="primary" (click)="confirmOTP()">Confirm</button>
+        </div>
+        <div class="div-50">
+            <a routerLink="/register" mat-raised-button color="accent">Cancel</a>
+        </div>
+    </mat-card-actions>
+</mat-card>
