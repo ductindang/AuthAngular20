@@ -34,4 +34,6 @@ export class UserService {
     GetMenuByRole(role: string){
         return this.http.get<Menu[]>(this.baseUrl + 'UserRole/getAllMenusByRole?userRole=' + role);
     }
+
+    
 }
