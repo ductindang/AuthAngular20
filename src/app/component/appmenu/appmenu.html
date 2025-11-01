@@ -14,7 +14,7 @@
                 </mat-list-item>
                 @for(item of _menuList; track item){
                     <mat-list-item>
-                        <button mat-button routerLink="item.code"><mat-icon>home</mat-icon>{{item.name}}</button>
+                        <button mat-button routerLink="{{item.code}}"><mat-icon>home</mat-icon>{{item.name}}</button>
                     </mat-list-item>
                 }
             </mat-nav-list>
@@ -25,7 +25,4 @@
             </div>
         </mat-drawer-content>
     </mat-drawer-container>
-
-
-    
 </div>
