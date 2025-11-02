@@ -16,6 +16,8 @@
     "module": "preserve"
   },
   "angularCompilerOptions": {
+    // Them dong nay de chay cac dong lenh if, for ...
+    "_enabledBlockTypes": ["if", "for", "switch", "defer"],
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,

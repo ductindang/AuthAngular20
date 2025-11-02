@@ -35,3 +35,8 @@ mat-card{
 .button{
     margin: 2px;
 }
+
+/* Khoang cach trai phai */
+.example-spacer{
+    flex: 1 1 auto;
+}

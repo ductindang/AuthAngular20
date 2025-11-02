@@ -1,28 +1,56 @@
-<div>
-    <mat-toolbar color="primary" class="mat-elevation-z8">
-        <button mat-icon-button (click)="drawer.toggle()">
-            <mat-icon>menu</mat-icon>
-        </button>
-        <span>Access management system</span>
-    </mat-toolbar>
+@if(_showMenu){
+    
+    <div>
+        <mat-toolbar color="primary" class="mat-elevation-z8">
+            <button mat-icon-button (click)="drawer.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span>Access management system</span>
+            <span class="example-spacer"></span>
+                <span>{{_loginUser}}</span>
+                <button mat-button [matMenuTriggerFor]="profile"><mat-icon>arrow_drop_down</mat-icon></button>
+                <mat-menu #profile>
+                    <button mat-menu-item>User profile</button>
+                    <button mat-menu-item routerLink="/resetPassword">Reset password</button>
+                    <button mat-menu-item routerLink="/login">Logout</button>
+                </mat-menu>
+            <!-- }
+            else
+            {
+                <button mat-button [matMenuTriggerFor]="profile"><mat-icon>arrow_drop_down</mat-icon></button>
+                <mat-menu #profile>
+                    <button mat-menu-item routerLink="/register">Register</button>
+                    <button mat-menu-item routerLink="/login">Login</button>
+                </mat-menu>
+            } -->
+            
 
-    <mat-drawer-container autosize>
-        <mat-drawer #drawer opened="true" mode="side" position="start">
-            <mat-nav-list>
-                <mat-list-item>
-                    <button mat-button routerLink=""><mat-icon>home</mat-icon>Home</button>
-                </mat-list-item>
-                @for(item of _menuList; track item){
+        </mat-toolbar>
+
+        <mat-drawer-container autosize>
+            <mat-drawer #drawer opened="true" mode="side" position="start">
+                <mat-nav-list>
                     <mat-list-item>
-                        <button mat-button routerLink="{{item.code}}"><mat-icon>home</mat-icon>{{item.name}}</button>
+                        <button mat-button routerLink=""><mat-icon>home</mat-icon>Home</button>
                     </mat-list-item>
-                }
-            </mat-nav-list>
-        </mat-drawer>
-        <mat-drawer-content>
-            <div style="text-align: center; min-height: 600px;">
-                <router-outlet></router-outlet> <!-- Dong nay la dong de dua toan bo cac html duoc import vao day -->
-            </div>
-        </mat-drawer-content>
-    </mat-drawer-container>
-</div>
+                    @for(item of _menuList; track item){
+                        <mat-list-item>
+                            <button mat-button routerLink="{{item.code}}"><mat-icon>home</mat-icon>{{item.name}}</button>
+                        </mat-list-item>
+                    }
+                </mat-nav-list>
+            </mat-drawer>
+            <mat-drawer-content>
+                <div style="text-align: center; min-height: 600px;">
+                    <router-outlet></router-outlet> <!-- Dong nay la dong de dua toan bo cac html duoc import vao day -->
+                </div>
+            </mat-drawer-content>
+        </mat-drawer-container>
+    </div>
+}
+@else
+{
+    <div style="text-align: center; min-height: 600px;">
+        <router-outlet></router-outlet> <!-- Dong nay la dong de dua toan bo cac html duoc import vao day -->
+    </div>
+}

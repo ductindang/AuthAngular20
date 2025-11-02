@@ -23,10 +23,14 @@ export class Login implements OnInit{
     ){}
 
     ngOnInit(): void {
+        // xoa toan bo localStorage
+        localStorage.clear();
         this._loginForm = this.builder.group({
             username:this.builder.control('', Validators.required),
             password:this.builder.control('', Validators.required),
         });
+
+        this.userService._menuList.set([]);
     }
 
     proceedLogin(){
@@ -41,6 +45,10 @@ export class Login implements OnInit{
                 localStorage.setItem('token', this._response.token);
                 localStorage.setItem('username', obj.username);
                 localStorage.setItem('userRole', this._response.userRole);
+                this.userService.GetMenuByRole(this._response.userRole).subscribe(item => {
+                    this.userService._menuList.set(item);
+                });
+                
                 this.router.navigateByUrl('/');
             }, error => {
                 this.toastr.error('Failed to login', error.error.title);

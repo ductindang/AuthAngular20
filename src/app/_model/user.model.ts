@@ -27,3 +27,9 @@ export interface Menu{
     code: string;
     name: string;
 }
+
+export class ResetPasswordModel{
+    username: string;
+    oldPassword: string;
+    newPassword: string;
+}

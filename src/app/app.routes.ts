@@ -8,6 +8,7 @@ import { UpdatePassword } from './component/update-password/update-password';
 import { ForgetPassword } from './component/forget-password/forget-password';
 import { ResetPassword } from './component/reset-password/reset-password';
 import { Customer } from './component/customer/customer';
+import { Userrole } from './component/userrole/userrole';
 
 export const routes: Routes = [
     {path:'', component:Home},
@@ -19,4 +20,5 @@ export const routes: Routes = [
     {path:'forgetPassword', component:ForgetPassword},
     {path:'resetPassword', component:ResetPassword},
     {path:'updatePassword', component:UpdatePassword},
+    {path:'userrole', component:Userrole},
 ];
