@@ -59,7 +59,7 @@ export class ConfirmOtp implements OnInit{
             this._regResponse.otpText = fullOtp;
             this.userService.ConfirmRegistration(this._regResponse).subscribe(item =>{
                 this._response = item;
-                if(this._response.result == 'Pass'){
+                if(this._response.result === 'Pass'){
                     // Inform for register successful
                     this.toastr.success(`Registeration completed successfully`, `Confirm success`);
                     console.log(`Full OTP: `, fullOtp);

@@ -53,7 +53,7 @@ export class Register implements OnInit {
                 // item la du lieu do api tra ve, obj la tham so truyen vao
                 this._response = item;
                 console.log(this._response)
-                if(this._response.result = 'Pass'){
+                if(this._response.result === 'Pass'){
                     // Lay thong tin de truyen sang cho trang confirmOtp
                     let confirmObj:RegisterConfirm = {
                         userId: this._response.message,
