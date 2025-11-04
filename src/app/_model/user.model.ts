@@ -33,3 +33,18 @@ export class ResetPasswordModel{
     oldPassword: string;
     newPassword: string;
 }
+
+export class UpdatePasswordModel{
+    username: string;
+    password: string;
+    otpText: string;
+}
+
+export class MenuPermission{
+    code: string;
+    name: string;
+    haveView: boolean;
+    haveAdd: boolean;
+    haveEdit: boolean;
+    haveDelete: boolean;
+}

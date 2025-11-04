@@ -6,7 +6,7 @@ import { AppMenu } from './component/appmenu/appmenu';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, AppMenu],
+  imports: [CommonModule, AppMenu],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

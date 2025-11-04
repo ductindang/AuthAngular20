@@ -21,7 +21,8 @@
         </mat-card-content>
         <mat-card-actions>
             <div class="div-50">
-                <button type="submit" mat-raised-button color="primary">Login</button>
+                <!-- Neu chua nhap du du lieu thi phim nay khong hien thi -->
+                <button type="submit" mat-raised-button color="primary" [disabled]="_loginForm.invalid">Login</button>
             </div>
             <div class="div-50">
                 <a routerLink="/register" mat-raised-button color="accent">Sign up</a>
