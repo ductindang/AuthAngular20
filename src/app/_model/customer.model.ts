@@ -1,0 +1,9 @@
+ export interface CustomerModel{
+    code: string;
+    name: string;
+    email: string;
+    phone: string;
+    creditLimit: number;
+    isActive: boolean;
+    statusName: string;
+ }

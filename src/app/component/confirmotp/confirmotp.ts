@@ -25,6 +25,7 @@ export class ConfirmOtp implements OnInit{
     ) {}
 
     ngOnInit(): void {
+        // khoi tao _regResponse la signal registerConfirm
         this._regResponse = this.userService._registerResponse();
     }
 
