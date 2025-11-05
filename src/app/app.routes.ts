@@ -8,9 +8,10 @@ import { UpdatePassword } from './component/update-password/update-password';
 import { ForgetPassword } from './component/forget-password/forget-password';
 import { ResetPassword } from './component/reset-password/reset-password';
 import { Customer } from './component/customer/customer';
-import { Userrole } from './component/userrole/userrole';
 import { authGuard } from './_guard/auth-guard';
 import { resetPasswordGuard } from './_guard/reset-password-guard';
+import { UserRole } from './component/user-role/user-role';
+import { AddCustomer } from './component/add-customer/add-customer';
 
 export const routes: Routes = [
     {path:'', component:Home, canActivate:[authGuard]},
@@ -22,5 +23,7 @@ export const routes: Routes = [
     {path:'forgetPassword', component:ForgetPassword},
     {path:'resetPassword', component:ResetPassword},
     {path:'updatePassword', component:UpdatePassword, canActivate: [resetPasswordGuard]},
-    {path:'userrole', component:Userrole},
+    {path:'userRole', component:UserRole},
+    {path:'customer/add', component:AddCustomer, canActivate:[authGuard]},
+    {path:'customer/edit:code', component:AddCustomer, canActivate:[authGuard]},
 ];
