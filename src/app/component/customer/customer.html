@@ -7,51 +7,66 @@
         }
     </mat-card-header>
     <mat-card-content>
-        <table mat-table [dataSource]="_dataSource">
-        <ng-container matColumnDef="code">
-            <th mat-header-cell *matHeaderCellDef>Code</th>
-            <td mat-cell *matCellDef="let element">{{ element.code }}</td>
-        </ng-container>
+        <!-- Add sort header -->
+        <table mat-table [dataSource]="_dataSource" matSort>
+            <ng-container matColumnDef="code">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Code</th>
+                <td mat-cell *matCellDef="let element">{{ element.code }}</td>
+            </ng-container>
 
-        <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef>Name</th>
-            <td mat-cell *matCellDef="let element">{{ element.name }}</td>
-        </ng-container>
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+                <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+            </ng-container>
 
-        <ng-container matColumnDef="email">
-            <th mat-header-cell *matHeaderCellDef>Email</th>
-            <td mat-cell *matCellDef="let element">{{ element.email }}</td>
-        </ng-container>
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+                <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+            </ng-container>
 
-        <ng-container matColumnDef="phone">
-            <th mat-header-cell *matHeaderCellDef>Phone</th>
-            <td mat-cell *matCellDef="let element">{{ element.phone }}</td>
-        </ng-container>
+            <ng-container matColumnDef="phone">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Phone</th>
+                <td mat-cell *matCellDef="let element">{{ element.phone }}</td>
+            </ng-container>
 
-        <ng-container matColumnDef="creditLimit">
-            <th mat-header-cell *matHeaderCellDef>Credit Limit</th>
-            <td mat-cell *matCellDef="let element">{{ element.creditLimit }}</td>
-        </ng-container>
+            <ng-container matColumnDef="creditLimit">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Credit Limit</th>
+                <td mat-cell *matCellDef="let element">{{ element.creditLimit }}</td>
+            </ng-container>
 
-        <ng-container matColumnDef="status">
-            <th mat-header-cell *matHeaderCellDef>Status</th>
-            <td mat-cell *matCellDef="let element">{{ element.statusName }}</td>
-        </ng-container>
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+                <td mat-cell *matCellDef="let element">{{ element.statusName }}</td>
+            </ng-container>
 
-        <ng-container matColumnDef="action">
-            <th mat-header-cell *matHeaderCellDef>Action</th>
-            <td mat-cell *matCellDef="let element">
-                <button (click)="functionEdit(element.code)" mat-raised-button color="primary">Edit</button>
-                <button (click)="functionDelete(element.code)" mat-raised-button color="accent">Delete</button>
-            </td>
-        </ng-container>
-        <!-- hien thi cac cot -->
-        <tr class="table-header" mat-header-row *matHeaderRowDef="_displayColumns"></tr>
-        <tr mat-row *matRowDef="let row;columns:_displayColumns"></tr>
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef>Action</th>
+                <td mat-cell *matCellDef="let element">
+                    <button (click)="functionEdit(element.code)" mat-raised-button color="primary">Edit</button>
+                    <button (click)="functionDelete(element.code)" mat-raised-button color="accent">Delete</button>
+                </td>
+            </ng-container>
+            <!-- hien thi cac cot -->
+            <tr class="table-header" mat-header-row *matHeaderRowDef="_displayColumns"></tr>
+            <tr mat-row *matRowDef="let row;columns:_displayColumns"></tr>
         </table>
     </mat-card-content>
     <br />
     <mat-card-footer>
+        <!-- Display paginator -->
         <mat-paginator [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
     </mat-card-footer>
 </mat-card>
+ 
+
+<!-- Popup confirm delete -->
+ <div *ngIf="_showConfirm" class="overlay">
+    <div class="popup">
+        <h3>Cofirm delete</h3>
+        <p>Are you sure to delete this customer?</p>
+        <div class="popup-buttons">
+            <button mat-raised-button color="warn" (click)="confirmDelete()">Delete</button>
+            <button mat-raised-button color="primary" (click)="cancelDelete()">Cancel</button>
+        </div>
+    </div>
+ </div>
