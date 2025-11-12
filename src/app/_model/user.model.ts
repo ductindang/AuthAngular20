@@ -48,3 +48,13 @@ export class MenuPermission{
     haveEdit: boolean;
     haveDelete: boolean;
 }
+
+export interface UserModel{
+    userName: string;
+    name: string;
+    email: string;
+    phone: string;
+    isActive: boolean;
+    statusName: string;
+    role: string;
+}
