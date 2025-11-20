@@ -71,7 +71,6 @@ export class UpdatePassword implements OnInit{
             this.userService.UpdatePasswordProceed(obj).subscribe(item => {
                 // item la du lieu do api tra ve, obj la tham so truyen vao
                 this._response = item;
-                console.log(this._response)
                 if(this._response.result === 'Pass'){
                     this.toastr.success('Please login with new password', 'Password changed')
                     // truyen du lieu qua file confirmotp

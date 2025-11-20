@@ -22,8 +22,10 @@ export class Customer implements OnInit{
     _displayColumns: string[]=["code", "name", "email", "phone", "creditLimit", "status", "action"];
     _dataSource: any;
     _permission: MenuPermission={
+        userRole: '',
         code: '',
         name: '',
+        menuCode: '',
         haveView: false,
         haveAdd: false,
         haveEdit: false,

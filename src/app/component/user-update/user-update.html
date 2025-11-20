@@ -1,0 +1,41 @@
+<mat-card>
+    <form [formGroup]="_userForm" (ngSubmit)="proceedChange()">
+        <mat-card-header>
+            <h1>Change role</h1>
+        </mat-card-header>
+        <mat-card-content>
+            <!-- PASSWORD INPUT -->
+            <mat-form-field>
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="username" />
+            </mat-form-field>
+            @if(_type === 'role'){
+                <mat-form-field>
+                    <mat-label>User role</mat-label>
+                    <mat-select formControlName="role">
+                        @for (item of _roleList; track item) {
+                            <mat-option value="{{item.code}}">{{item.name}}</mat-option>
+                        }
+                    </mat-select>
+                </mat-form-field>
+            }@else {
+                <div class="div-50">
+                    <mat-checkbox formControlName="status">Is active</mat-checkbox>
+                </div>
+            }
+            
+
+            
+
+        </mat-card-content>
+
+        <mat-card-actions>
+            <div class="div-50">
+                <button type="submit" mat-raised-button color="primary">Update</button>
+            </div>
+            <div class="div-50">
+                <a (click)="closePopup()" mat-raised-button color="accent">Cancel</a>
+            </div>
+        </mat-card-actions>
+    </form>
+</mat-card>

@@ -41,7 +41,9 @@ export class UpdatePasswordModel{
 }
 
 export class MenuPermission{
+    userRole: string;
     code: string;
+    menuCode: string;
     name: string;
     haveView: boolean;
     haveAdd: boolean;
@@ -50,11 +52,17 @@ export class MenuPermission{
 }
 
 export interface UserModel{
-    userName: string;
+    username: string;
     name: string;
     email: string;
     phone: string;
     isActive: boolean;
     statusName: string;
     role: string;
+}
+
+export class UpdateUser{
+    username: string;
+    role: string;
+    status: boolean;
 }
