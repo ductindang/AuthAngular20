@@ -1,7 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
 import { environment } from '../../environments/environment.development';
-import { LoginResponse, Menu, MenuPermission, RegisterConfirm, ResetPasswordModel, UpdatePasswordModel, UserCred, UserModel, UserRegister } from '../_model/user.model';
+import { LoginResponse, Menu, MenuPermission, RegisterConfirm, ResetPasswordModel, UpdatePasswordModel, UpdateUser, UserCred, UserModel, UserRegister } from '../_model/user.model';
+import { MenuRole, Role } from '../_model/role.model';
+
+
 
 @Injectable({
     providedIn: 'root',
@@ -59,4 +62,29 @@ export class UserService {
     GetAllUsers(){
         return this.http.get<UserModel[]>(this.baseUrl + 'User/getAll');
     }
+
+    GetUserByCode(code: string){
+        return this.http.get<UserModel>(this.baseUrl + 'User/getByCode?code=' + code);
+    }
+
+    GetAllRoles(){
+        return this.http.get<Role[]>(this.baseUrl + 'UserRole/getAllRoles');
+    }
+
+    UpdateRole(data: UpdateUser){
+        return this.http.put(this.baseUrl + "User/updateRole", data);
+    }
+
+    UpdateStatus(data: UpdateUser){
+        return this.http.put(this.baseUrl + "User/updateStatus", data);
+    }
+
+    GetAllMenus(){
+        return this.http.get<MenuRole[]>(this.baseUrl + 'UserRole/getAllMenus');
+    }
+
+    AssignRolePermission(data: MenuPermission[]){
+        return this.http.post(this.baseUrl + 'UserRole/assignRolePermission', data);
+    }
+
 }

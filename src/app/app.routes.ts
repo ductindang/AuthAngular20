@@ -26,4 +26,5 @@ export const routes: Routes = [
     {path:'userRole', component:UserRole},
     {path:'customer/add', component:AddCustomer, canActivate:[authGuard]},
     {path:'customer/edit/:code', component:AddCustomer, canActivate:[authGuard]},
+    
 ];

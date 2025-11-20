@@ -3,10 +3,11 @@ import { MaterialModule } from '../../material.module';
 import { UserService } from '../../_service/user.service';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { Menu } from '../../_model/user.model';
+import { CdkDragDrop, DragDropModule, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
     selector: 'app-appmenu',
-    imports: [MaterialModule, RouterOutlet, RouterLink],
+    imports: [MaterialModule, RouterOutlet, RouterLink, DragDropModule],
     templateUrl: './appmenu.html',
     styleUrl: './appmenu.css',
 })
@@ -33,7 +34,7 @@ export class AppMenu implements OnInit, DoCheck{
 
 
     // Luon thay doi khi thay doi trang
-     ngDoCheck(): void {
+    ngDoCheck(): void {
         // lay username de dua vao view hien thi
         this._loginUser = localStorage.getItem('username') as string;
         this.SetAccess();
@@ -47,6 +48,10 @@ export class AppMenu implements OnInit, DoCheck{
         }else{
             this._showMenu = true;
         }
+    }
+
+    dropMenu(event: CdkDragDrop<any[]>){
+        moveItemInArray(this._menuList, event.previousIndex, event.currentIndex);
     }
 
 }

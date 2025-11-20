@@ -29,13 +29,18 @@
 
         <mat-drawer-container autosize>
             <mat-drawer #drawer opened="true" mode="side" position="start">
-                <mat-nav-list>
+                <mat-nav-list cdkDropList (cdkDropListDropped)="dropMenu($event)">
                     <mat-list-item>
-                        <button mat-button routerLink=""><mat-icon>home</mat-icon>Home</button>
+                        <button mat-button routerLink="">
+                            <mat-icon>home</mat-icon>Home
+                        </button>
                     </mat-list-item>
+
                     @for(item of _menuList; track item){
-                        <mat-list-item>
-                            <button mat-button routerLink="{{item.code}}"><mat-icon>home</mat-icon>{{item.name}}</button>
+                        <mat-list-item cdkDrag>
+                            <button mat-button routerLink="{{item.code}}">
+                                <mat-icon>home</mat-icon>{{item.name}}
+                            </button>
                         </mat-list-item>
                     }
                 </mat-nav-list>
